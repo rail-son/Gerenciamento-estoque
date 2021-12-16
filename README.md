@@ -1,4 +1,4 @@
-<h1 align="center"> Desafio Didatikos </h1>
+<h1 align="center"> Desafio Didatikos 📚 ☁️</h1>
 <h2>Backend:<h2>
 
 <p>Criar uma api para realizar o gerenciamento de um produto.</p>
@@ -17,12 +17,12 @@
 <p>A partir desse cadastro um recurso REST para gerenciamento desse modelo com os seguintes métodos devem estar disponíveis: </p>
 
 <ul>
-<li>GET /products - Lista todos os produtos<li>
-<li>GET /products/{id} - Busca um produto por id<li>
-<li>POST /products - Cria um novo produto<li>
-<li>PUT /products/{id} - Edita um produto<li>
-<li>DELETE /products/{id} - Deleta um produto<li>
-<li>GET /cidades - Lista todas as cidades<li>
+<li>GET /products - Lista todos os produtos</li>
+<li>GET /products/{id} - Busca um produto por id</li>
+<li>POST /products - Cria um novo produto</li>
+<li>PUT /products/{id} - Edita um produto</li>
+<li>DELETE /products/{id} - Deleta um produto</li>
+<li>GET /cidades - Lista todas as cidades</li>
 </ul>
 
 <p>O projeto Backend devera ser feito em Laravel(PHP) com o banco de dados mysql.</p>
