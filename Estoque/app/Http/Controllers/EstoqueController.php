@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Products;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use App\Models\Flight;
+
 
 class EstoqueController extends Controller
 {
@@ -26,17 +29,31 @@ class EstoqueController extends Controller
         $search = request('search');
         $products = Products::all();
         if($search == NULL){
-            $product = $products[$id - 1];
+            for($i = 0; $i<count($products); $i++){
+                if($id == $products[$i]->cod_produto){
+                    return view('product-id', ['products' => $products[$i]]);
+                }
+            }
+            return redirect('/products')->with('msg', 'O produto não foi encontrado.');
         }else{
-            $product = $products[$search - 1];
+            for($i = 0; $i<count($products); $i++){
+                if($search == $products[$i]->cod_produto){
+                    return view('product-id', ['products' => $products[$i]]);
+                }
+            }
+            return redirect('/products')->with('msg', 'O produto não foi encontrado.');
         }
-        return view('product-id', ['product' => $product]);
+        
     }
 
 
-    public function exclui_produto($id){
+    public function destroy($id){
+        
+        Products::where('cod_produto', $id)->delete();
 
-        return redirect('/products')->with('msg', 'Produto excluído com sucesso!');
+        return redirect('/')->with('msg', 'O produto foi deletado com sucesso.');;
+
+        
     }
 
     public function editar_produto($id){

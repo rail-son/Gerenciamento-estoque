@@ -20,14 +20,15 @@ Route::get('/produto/criar-produto', [EstoqueController::class, 'create']);
 
 Route::get('/products', [EstoqueController::class, 'produtos']);
 
-Route::get('/products/{id}', [EstoqueController::class, 'id_produtos']);
-
-Route::get('/exclui-produto', [EstoqueController::class, 'exclui_produto']);
-
-Route::get('/exibe-cidades', [EstoqueController::class, 'exibe_cidades']);
-
 Route::post('/products', [EstoqueController::class, 'store']);
+
+Route::get('/products/{id}', [EstoqueController::class, 'id_produtos']);
 
 Route::put('/products/{id}', [EstoqueController::class, 'editar_produto']);
 
-Route::delete('/products/{id}', [EstoqueController::class, 'exclui_produto']);
+Route::delete('/products/{id}', [EstoqueController::class, 'destroy']);
+
+Route::get('/exibe-cidades', [EstoqueController::class, 'exibe_cidades']);
+
+
+
