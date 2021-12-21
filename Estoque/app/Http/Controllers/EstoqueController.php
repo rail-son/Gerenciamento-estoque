@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Products;
+use Illuminate\Support\Facades\DB;
 
 class EstoqueController extends Controller
 {
@@ -13,7 +14,8 @@ class EstoqueController extends Controller
 
     public function produtos(){
         $products = Products::all();
-        return view('products', ['products' => $products]);
+        $id = 'id';
+        return view('products', ['products' => $products, 'id' => $id]);
     }
 
     public function create(){
@@ -21,20 +23,29 @@ class EstoqueController extends Controller
     }
 
     public function id_produtos($id){
-        return view('product-id', ['id' => $id]);
+        $search = request('search');
+        $products = Products::all();
+        if($search == NULL){
+            $product = $products[$id - 1];
+        }else{
+            $product = $products[$search - 1];
+        }
+        return view('product-id', ['product' => $product]);
     }
 
 
-    public function exclui_produto(){
-        return view('exclui-produto');
+    public function exclui_produto($id){
+
+        return redirect('/products')->with('msg', 'Produto excluído com sucesso!');
     }
 
-    public function editar_produto(){
+    public function editar_produto($id){
         return view('edita-produto');
     }
 
     public function exibe_cidades(){
-        return view('exibe-cidades');
+        $cidade = DB::table('products')->distinct('cidade')->get('cidade');
+        return view('exibe-cidades', ['cidade' => $cidade]);
     }
 
     public function store(Request $request){
@@ -48,7 +59,15 @@ class EstoqueController extends Controller
 
         $products->save();
 
-        return redirect('/');
+        return redirect('/')->with('msg', 'Produto criado com sucesso!');
     }
 
+    public function editaProoduto($id){
+        $products = Products::all();
+        
+
+    }
+
+
 }
+

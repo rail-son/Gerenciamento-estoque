@@ -4,7 +4,12 @@
 
 @section('content')
 
-<br>
-<h1>Aqui será exibido todas as cidades</h1>
-
+<div id="product-create-container">
+    <h1>Cidades</h1>
+    <div id="city">
+        @foreach ($cidade as $city)
+            <p>{{$city -> cidade}}</p>
+        @endforeach
+    </div>
+</div>
 @endsection

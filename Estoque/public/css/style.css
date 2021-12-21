@@ -1,5 +1,5 @@
 * {
-    font-family: 'Poopins', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body{
@@ -8,10 +8,11 @@ body{
     position: relative;
     background-color: #fecc52;
 }
+
 body h1{
     color: #57595c;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 30px;
     margin-bottom: 30px;
     font-weight: 900;
 }
@@ -63,8 +64,16 @@ header{
 
 #search-container h1{
     color: #fecc52;
+    font-size: 60px;
     margin-bottom: 30px;
-    font-weight: 900;
+    font-weight: 700;
+}
+
+#search-container h2{
+    color: #fecc52;
+    margin-bottom: 30px;
+    font-weight: 500;
+
 }
 
 #search-container form{
@@ -76,10 +85,12 @@ header{
     padding: 50px;
 }
 
-#produtos-container h2{
+#produtos-container h3{
+    color: #757575;
     text-align: center;
     font-weight: bold;
     margin-bottom: 30px;
+    font-size: 40px;
 }
 
 #cards-container{
@@ -88,25 +99,27 @@ header{
 }
 
 #produtos-container .card{
-    flex: 1 1 0;
-    max-width: 25%;
+    flex: 1 1 24%;
+    max-width: 24%;
     border-radius: 10px;
     padding: 0;
-    margin: 5px;
+    margin: .5%;
+    background-color: #757575;
 }
 
 .card{
     font-size: 15px;
     background-color: #fecc52;
-    color: black;
+    color: #57595c;
     border: 1px solid black;
 }
+
 
 #produtos-container p{
     margin: 10px;
     color: black;
     font-size: 20px;
-    margin-bottom: 0px;
+    margin-bottom: 15px;
 }
 
 footer{
@@ -140,7 +153,6 @@ footer p{
 }
 
 .btn {
-    background-color: #353E48;
     border: 1px solid #353E48;
     display: flex;
     justify-content: center;
@@ -152,4 +164,39 @@ footer p{
 .btn:hover {
     color: #fecc52;
     background-color: #FFF;
+    border: 1px solid black;
+}
+
+#btnExclui #btnEdita{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#btnEdita{
+    margin-right: 50px;
+    
+}
+
+#btnExclui{
+    margin-left: 50px;
+}
+
+.msg{
+    background-color: #D4EDDA;
+    color: #155724;
+    border: 1px solid #C3E6CB;
+    width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 10px;
+
+}
+
+#city{
+    width: 100%;
+    font-size: 25px;
+    text-align: center;
+    text-decoration: underline;
+
 }

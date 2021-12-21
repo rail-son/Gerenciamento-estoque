@@ -8,7 +8,7 @@
 
 <div id="product-create-container" class="col-md-6 offset-md-3">
     <h1>Crie um produto</h1>
-    <form action="/products" method="POST">
+    <form action="/products" method="POST" autocomplete="off">
         @csrf
         <div class="form-group">
             <label for="nome_produto">Produto: </label>
@@ -26,7 +26,7 @@
             <label for="cidade">Cidade: </label>
             <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Nome da cidade">
         </div>
-        <input type="submit" class="btn btn-primary" value="Criar produto">
+        <input type="submit" class="btn btn-dark" value="Criar produto">
     </form>
 </div>
 @endsection

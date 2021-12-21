@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="pt_br">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,16 +33,7 @@
                             <a href="/products" class="nav-link">Estoque Completo</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/products/1" class="nav-link">Produtos ID</a>
-                        </li>
-                        <li class="nav-item">
                             <a href="/produto/criar-produto" class="nav-link">Cria Produto</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/exclui-produto" class="nav-link">Excluir Produto</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/edita-produto" class="nav-link">Editar Produto</a>
                         </li>
                         <li class="nav-item">
                             <a href="/exibe-cidades" class="nav-link">Exibe Cidades</a>
@@ -51,7 +42,16 @@
                 </div>
             </nav>
         </header>
-        @yield('content')
+        <main>
+            <div class="container-fluir">
+                <div class="row">
+                    @if(session('msg'))
+                        <p class="msg">{{session('msg')}}</p>
+                    @endif
+                    @yield('content');
+                </div>
+            </div>
+        </main>
         <footer>
             <p>Estoque Didatikos &copy; 2021</p>
         </footer>

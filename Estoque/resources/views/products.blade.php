@@ -5,35 +5,26 @@
 @section('content')
 
 <div id="search-container" class="col-md-12">
-    <h1>Estoque Completo </h1>
+    <h1>Estoque Completo</h1>
     <br>
-    <h1>Busque pelo ID do produto: </h1>
-    <form action="">
-        <input type="text" name="search" id="search" class="form-control" placeholder="Digite o ID...">
+    <h2>Busque pelo ID do produto: </h2>
+    <form action="/products/id" method="GET" autocomplete="off">
+        <input type="number" name="search" id="search" class="form-control" placeholder="Digite o ID...">
     </form>
 </div>
 <br>
 <div id="produtos-container" class="col-md-12">
-    <h2>PRODUTOS DO ESTOQUE</h2>
+    <h3>PRODUTOS DO ESTOQUE</h3>
     <div id="cards-container" class="row">
-        
-            
-        @for ($j = 0; $j < count($products); $j++)
-            @for ($i = 0; $i < 3; $i++)
+        @foreach ($products as $prod)  
             <div class="col-md-3 card">
-                <p>ID: {{$products[$j] -> cod_produto}}</p>
-                <p>Produto:<br> {{$products[$j] -> nome_produto}}</p>
-                <p>Valor: {{$products[$j] -> valor_produto}}</p>
-                <p>Estoque: {{$products[$j] -> estoque}}</p>
-                <p>Cidade:<br> {{$products[$j] -> cidade}}</p>
-                @php
-                $j = $j + 1;   
-                @endphp
+                <p><b>ID:</b> {{$prod -> cod_produto}}</p>
+                <p><b>Produto:</b> {{$prod -> nome_produto}}</p>
+                <p><b>Valor:</b> {{$prod -> valor_produto}}</p>
+                <p><b>Estoque:</b> {{$prod -> estoque}}</p>
+                <p><b>Cidade:</b> {{$prod -> cidade}}</p>  
             </div>
-            @endfor
-            <div class="row"></div>
-        @endfor
-    
+        @endforeach
     </div>
 </div>
     
