@@ -36,7 +36,7 @@
                             <a href="/produto/criar-produto" class="nav-link">Cria Produto</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/exibe-cidades" class="nav-link">Exibe Cidades</a>
+                            <a href="/cidades" class="nav-link">Exibe Cidades</a>
                         </li>
                     </ul>
                 </div>
@@ -48,7 +48,7 @@
                     @if(session('msg'))
                         <p class="msg">{{session('msg')}}</p>
                     @endif
-                    @yield('content');
+                    @yield('content')
                 </div>
             </div>
         </main>

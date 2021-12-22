@@ -70,7 +70,7 @@ class EstoqueController extends Controller
 
     public function exibe_cidades(){
         $cidade = DB::table('products')->distinct('cidade')->orderByRaw('cidade')->get('cidade');
-        return view('exibe-cidades', ['cidade' => $cidade]);
+        return view('/cidades', ['cidade' => $cidade]);
     }
 
     public function store(Request $request){

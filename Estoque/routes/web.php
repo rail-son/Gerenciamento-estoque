@@ -16,19 +16,28 @@ use App\Http\Controllers\EstoqueController;
 
 Route::get('/', [EstoqueController::class, 'index']);
 
-Route::get('/produto/criar-produto', [EstoqueController::class, 'create']);
-
+// Métodos obrigatórios
 Route::get('/products', [EstoqueController::class, 'produtos']);
-
-Route::post('/products', [EstoqueController::class, 'store']);
 
 Route::get('/products/{id}', [EstoqueController::class, 'id_produtos']);
 
-Route::get('/products/edit/{id}', [EstoqueController::class, 'edit']);
+Route::post('/products', [EstoqueController::class, 'store']);
 
 Route::delete('/products/{id}', [EstoqueController::class, 'destroy']);
 
-Route::get('/exibe-cidades', [EstoqueController::class, 'exibe_cidades']);
+Route::get('/produto/criar-produto', [EstoqueController::class, 'create']);
+
+Route::get('/cidades', [EstoqueController::class, 'exibe_cidades']);
+
+
+
+
+
+Route::get('/products/edit/{id}', [EstoqueController::class, 'edit']);
+
+
+
+
 
 Route::put('/products/{id}', [EstoqueController::class, 'update']);
 
