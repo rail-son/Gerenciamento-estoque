@@ -56,18 +56,28 @@ class EstoqueController extends Controller
         
     }
 
-    public function editar_produto($id){
-        return view('edita-produto');
+    public function edit($id){
+        $products = Products::all();
+        for($i = 0; $i<count($products); $i++){
+            if($id == $products[$i]->cod_produto){
+                return view('edita-produto', ['products' => $products[$i]]);
+            }
+        }
+        return redirect('/products')->with('msg', 'O produto não foi encontrado.');
+        
     }
 
+
     public function exibe_cidades(){
-        $cidade = DB::table('products')->distinct('cidade')->get('cidade');
+        $cidade = DB::table('products')->distinct('cidade')->orderByRaw('cidade')->get('cidade');
         return view('exibe-cidades', ['cidade' => $cidade]);
     }
 
     public function store(Request $request){
 
         $products = new Products;
+
+        $request->valor_produto = str_replace(",",".", $request->valor_produto); 
 
         $products->nome_produto = $request->nome_produto;
         $products->valor_produto = $request->valor_produto;
@@ -83,6 +93,13 @@ class EstoqueController extends Controller
         $products = Products::all();
         
 
+    }
+
+    public function update(Request $request){
+        
+        Products::where('cod_produto', $request->id)->update($request->except(['_token', '_method']));
+
+        return redirect('/products')->with('msg', 'Produto editado com sucesso!');
     }
 
 

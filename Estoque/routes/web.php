@@ -24,11 +24,12 @@ Route::post('/products', [EstoqueController::class, 'store']);
 
 Route::get('/products/{id}', [EstoqueController::class, 'id_produtos']);
 
-Route::put('/products/{id}', [EstoqueController::class, 'editar_produto']);
+Route::get('/products/edit/{id}', [EstoqueController::class, 'edit']);
 
 Route::delete('/products/{id}', [EstoqueController::class, 'destroy']);
 
 Route::get('/exibe-cidades', [EstoqueController::class, 'exibe_cidades']);
 
+Route::put('/products/{id}', [EstoqueController::class, 'update']);
 
 

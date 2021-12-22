@@ -4,6 +4,8 @@
 
 @section('content')
 
+
+
 <div id="search-container" class="col-md-12">
     <h1>Estoque Completo</h1>
     <br>
@@ -19,14 +21,18 @@
             <div class="col-md-3 card">
                 <p><b>ID:</b> {{$products -> cod_produto}}</p>
                 <p><b>Produto:</b> {{$products -> nome_produto}}</p>
-                <p><b>Valor:</b> {{$products -> valor_produto}}</p>
+                @php
+                    $valor = $products -> valor_produto;
+                    $valor = str_replace(".",",", $valor);
+                @endphp
+                <p><b>Valor:</b> R${{$valor }}</p>
                 <p><b>Estoque:</b> {{$products -> estoque}}</p>
                 <p><b>Cidade:</b> {{$products -> cidade}}</p>
             </div>
     </div>
     <div class="row">
         <div class="col-md-6">
-            <a href=""><button id="btnEdita" type="button" class="btn btn-info">Editar</button></a>
+            <a href="/products/edit/{{$products -> cod_produto}}"><button type="submit" id="btnEdita" type="button" class="btn btn-info">Editar</button></a>
         </div>
         <div class="col-md-6">
             <form action="/products/{{$products -> cod_produto}}" method="POST">

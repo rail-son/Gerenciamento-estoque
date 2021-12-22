@@ -20,7 +20,11 @@
             <div class="col-md-3 card">
                 <p><b>ID:</b> {{$prod -> cod_produto}}</p>
                 <p><b>Produto:</b> {{$prod -> nome_produto}}</p>
-                <p><b>Valor:</b> {{$prod -> valor_produto}}</p>
+                @php
+                    $valor = $prod -> valor_produto;
+                    $valor = str_replace(".",",", $valor);
+                @endphp
+                <p><b>Valor:</b> R${{$valor}}</p>
                 <p><b>Estoque:</b> {{$prod -> estoque}}</p>
                 <p><b>Cidade:</b> {{$prod -> cidade}}</p>  
             </div>
